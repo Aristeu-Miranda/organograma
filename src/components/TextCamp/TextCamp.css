@@ -17,3 +17,8 @@
     padding: 24px;
     box-sizing: border-box;
 }
+
+.campo-color input {
+    padding: 5px 24px;
+    height: 40px;
+}

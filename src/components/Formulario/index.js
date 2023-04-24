@@ -9,6 +9,8 @@ const Formulario = (props) => {
     const [cargo, setCargo] = useState('');
     const [imagem, setImagem] = useState('');
     const [time, setTime] = useState('');
+    const [nomeTime, setNomeTime] = useState('');
+    const [corTime, setCorTime] = useState('');
 
     const aoSalvar = (evento) => {
         evento.preventDefault();
@@ -55,6 +57,30 @@ const Formulario = (props) => {
             />
             <Botao>
                 Criar Card
+            </Botao>
+            </form>
+            <form onSubmit={(evento) => {
+                evento.preventDefault()
+                props.cadastrarTime({ nome: nomeTime, cor: corTime })
+            }}>
+                <h2>Preencha os dados para criar um time</h2>
+            <TextCamp 
+                obrigatorio 
+                label="Nome" 
+                placeholder="Digite o nome do time"
+                valor={nomeTime}
+                aoAlterado={valor => setNomeTime(valor)}
+            />
+            <TextCamp 
+                obrigatorio
+                label="Cor" 
+                placeholder="Digite a cor do time"
+                valor={corTime}
+                aoAlterado={valor => setCorTime(valor)}
+                type='color'
+            />
+            <Botao>
+                Criar um novo time
             </Botao>
             </form>
         </section>
